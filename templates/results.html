@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados da Pesquisa</title>
+</head>
+<body>
+    <h1>Resultados da Pesquisa para "{{ search_term }}"</h1>
+    {% if results %}
+        <ul>
+            {% for page_num, text in results %}
+                <li>
+                    <strong>Página {{ page_num }}:</strong>
+                    <pre>{{ text|safe }}</pre>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+    <br>
+    <a href="/">Nova Pesquisa</a>
+</body>
+</html>
